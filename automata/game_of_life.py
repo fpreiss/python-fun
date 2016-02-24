@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from numpy import ones, random
 import scipy.signal as sg
 from matplotlib import pyplot, animation
