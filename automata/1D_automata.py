@@ -1,5 +1,7 @@
 #!/usr/bin/env python2
 #coding: utf8
+#A general 1D automata that takes any rule accordung to the wolfram code with S=2 and D=1
+#https://en.wikipedia.org/wiki/Wolfram_code
 import random
 import sys
 import argparse
