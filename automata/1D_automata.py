@@ -3,7 +3,6 @@
 #A general 1D automata that takes any rule accordung to the wolfram code with S=2 and D=1
 #https://en.wikipedia.org/wiki/Wolfram_code
 import random
-import sys
 import argparse
 
 def dead_life2(l,rules,rule_range):
@@ -14,7 +13,7 @@ def dead_life2(l,rules,rule_range):
     for i in range(-rule_range,rule_range):
         l_=map(add,l_,roll(l,i+1)) #creates a temporary list f 
     l=map(dead_life,l_) #compute next state
-    return l    
+    return l
 
 def main():
     parser = argparse.ArgumentParser(description='1D cellular automata', epilog='By default the options used are:\n -rule 110 -length 80 -values 1 -steps 20')
@@ -30,7 +29,7 @@ def main():
     else: #fill l depending on user choice
         l=[]
         for i in  str(args.values): l.append(max(min(int(i),1),0))
-        if (args.length-1>len(l)): l=[0]*(((args.length-len(l))//2)+(args.length-len(l))%2)+l+[0]*((args.length-len(l))//2)    
+        if (args.length-1>len(l)): l=[0]*(((args.length-len(l))//2)+(args.length-len(l))%2)+l+[0]*((args.length-len(l))//2)
     rule_range=1 #number of neighbours in each direction
     while 2**(2**(1+2*rule_range))<=args.rule: rule_range+=1 #update number of neighbours depending of user rule
     b=(2**((1+2*rule_range))-(len(bin(args.rule)[2:])))*'0'+str(bin(args.rule)[2:]) #translate user rule into a binary string (example: rule 90 --> 01011010)
